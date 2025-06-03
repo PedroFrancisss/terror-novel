@@ -502,7 +502,7 @@ const cenas = [
     "— Agora, se me derem licença... prefiro não ser o único a expor a própria rotina aqui.",
     "A enfermeira dá um passo à frente, tirando as luvas lentamente enquanto encara o grupo."
   ],
-  opcoes: [
+    opcoes: [
     {
       texto: "Aguardar outra pessoa se apresentar",
       proxima: "testemunho_amanda"
@@ -513,7 +513,7 @@ const cenas = [
   id: "testemunho_amanda",
   imagem: "img/testemunho_amanda.jpg",
   texto: [
-    "Amanda respira fundo, ajeita os cabelos atrás da orelha e dá um passo à frente.",
+    "A próxima a se apresentar é a mulher que fez o atendimento ao falecido, ela respira fundo, ajeita os cabelos atrás da orelha e dá um passo à frente.",
     "— Amanda Rodrigues. 31 anos. Enfermeira pediátrica.",
     "Sua voz é firme, mas não agressiva.",
     "— Vim ao hotel para tentar desligar um pouco... tenho trabalhado direto em UTI neonatal. Precisei de um lugar silencioso, afastado, sem barulho de respiradores ou choro.",
@@ -527,13 +527,19 @@ const cenas = [
     "Ela dá dois passos para trás, voltando à parede.",
     "— É só isso."
   ],
+  opcoes: [
+    {
+      texto: "Aguardar outra pessoa se apresentar",
+      proxima: "testemunho_eduardo"
+    }
+  ]
   proxima: "testemunho_eduardo"
 },
 {
   id: "testemunho_eduardo",
   imagem: "img/testemunho_eduardo.jpg",
   texto: [
-    "Eduardo dá um passo à frente de forma exagerada, como se estivesse entrando num palco.",
+    "Um homem magro e estiloso dá um passo à frente de forma exagerada, como se estivesse entrando num palco.",
     "— Eduardo Santiago. 36 anos. Ator.",
     "Faz uma breve reverência com sarcasmo. Ninguém ri.",
     "— Estou aqui por convite. Um conhecido recomendou o hotel como 'refúgio artístico'. Tranquilo, elegante, inspirador...",
@@ -551,13 +557,18 @@ const cenas = [
     "Volta pro seu canto, quieto."
 
   ],
-  proxima: "testemunho_renata"
+    opcoes: [
+    {
+      texto: "Aguardar outra pessoa se apresentar",
+      proxima: "testemunho_renata"
+    }
+  ]
 },
 {
   id: "testemunho_renata",
   imagem: "img/testemunho_renata.jpg",
   texto: [
-    "Renata ajeita o cabelo, dá dois passos à frente, e sorri brevemente para... ninguém.",
+    "A gringa ajeita o cabelo, dá dois passos à frente, e sorri brevemente para... ninguém.",
     "— Hola, soy Renata Villar, 29 años. Argentina, influenciadora digital de lifestyle e viagens.",
     "Ela pausa como se esperasse aplausos.",
     "— Vim para este hotel por indicação de um seguidor. O lugar parecia... exótico.",
@@ -573,13 +584,17 @@ const cenas = [
     "Renata dá meia-volta e volta ao lugar como se estivesse descendo de uma passarela.",
     "O silêncio que se segue não é de respeito. É puro julgamento coletivo."
   ],
-  proxima: "testemunho_marcos"
-},
+    opcoes: [
+    {
+      texto: "Aguardar que outra pessoa se apresente",
+      proxima: "testemunho_marcos"
+    }
+  ]
 {
   id: "testemunho_marcos",
   imagem: "img/testemunho_marcos.jpg",
   texto: [
-    "Marcos caminha até o centro da sala em passos lentos, mas firmes.",
+    "O que se auto intitula policial caminha até o centro da sala em passos lentos, mas firmes.",
     "Cruza os braços. Olhar duro, voz seca.",
     "— Marcos Santana. 58 anos. Policial aposentado.",
     "— Trabalhei por mais de 30 anos em Belo Horizonte. Homicídios, latrocínios, desaparecidos... já vi coisa pior do que a maioria de vocês conseguiria dormir sabendo.",
@@ -594,7 +609,12 @@ const cenas = [
     "Ele não espera reação. Dá meia-volta e volta pro canto dele.",
     "— É isso."
   ],
-  proxima: "testemunho_alfreda"
+    opcoes: [
+    {
+      texto: "Aguardar outra pessoa se apresentar",
+      proxima: "testemunho_alfreda"
+    }
+  ]
 },
 {
   id: "testemunho_alfreda",
@@ -602,7 +622,7 @@ const cenas = [
   texto: [
     "Alfreda permanece imóvel por alguns segundos. Então, lentamente, caminha até o centro.",
     "Ela não se apresenta de imediato. Seus olhos percorrem o grupo inteiro antes de falar.",
-    "— Alfreda. Tenho 48 anos. Sou a proprietária deste hotel... e também a recepcionista.",
+    "— Alfreda. Tenho 48 anos. Sou a proprietária deste hotel...",
     "Sua voz é baixa, firme, mas carregada de algo antigo — como quem viveu mais do que aparenta.",
     "— Nasci nesta cidade. Vi esse lugar mudar de mãos muitas vezes. Mas sempre soube que... algo aqui não mudava.",
     "Ela faz uma pausa longa.",
@@ -612,15 +632,21 @@ const cenas = [
     "Ela respira fundo.",
     "— Eu sei que vocês querem respostas. Mas... talvez o que eu diga agora não seja levado a sério.",
     "— Talvez achem que eu estou louca, ou velha demais. Talvez até riam.",
-    "Ela olha diretamente para o protagonista.",
+    "Ela olha diretamente para você por acaso.",
     "— Mas o que quer que tenha feito aquilo... não foi humano."
   ],
-  proxima: "reacoes_alfreda"
+  opcoes: [
+    {
+      texto: "Observar as reações das pessoas",
+      proxima: "reacoes_alfreda"
+    }
+  ]
 },
 {
   id: "reacoes_alfreda",
   imagem: "img/sala_reuniao.jpg",
   texto: [
+    "Você por um minuto não acredita no que Alfreda disse, mas com base com o que viu no vidro talvez deva dá um voto de confiança a ela.",
     "O silêncio na sala se transforma.",
     "Amanda franze a testa e cruza os braços. Analítica, mas desconfortável.",
     "Bruno solta uma risada seca, sem humor algum.",
@@ -634,11 +660,17 @@ const cenas = [
     "Sara nem tenta falar. Está pálida, abraçada ao próprio corpo, os olhos fixos no chão.",
     "Juliana continua:",
     "— Estamos aqui pra visitar uma amiga da família que mora nas redondezas... ou melhor, estávamos.",
-    "— No momento do grito, estávamos voltando do banheiro. Foi logo antes de encontrarmos você.",
+    "- Não tínhamos intenção alguma de parar aqui, mas infelizmente as condições climáticas e a gasolina do carro não ajudaram.",
+    "— No momento do grito, estávamos voltando do banheiro. Foi logo antes de encontrarmos vocês.",
     "Ela respira fundo, segurando o ombro da filha.",
     "— Sinceramente... eu só quero sair daqui com ela. É só isso que importa pra mim agora."
   ],
-  proxima: "testemunho_protagonista"
+    opcoes: [
+    {
+      texto: "Você é o próximo a se apresentar.",
+      proxima: "testemunho_protagonista"
+    }
+  ]
 },
 {
   id: "testemunho_protagonista",
@@ -646,9 +678,9 @@ const cenas = [
   texto: [
     "Todos olham em sua direção. Agora, é sua vez.",
     "Você se levanta lentamente.",
-    "— Sou {{nome}} {{sobrenome}}, tenho {{idade}} anos.",
+    "— Me chamo {{nome}} {{sobrenome}}.",
     "— Juliana é minha madrasta. Sara é minha meia-irmã.",
-    "— Sou estudante de Psicologia. Vim pra tentar entender os outros. Agora, nem sei se entendo a mim mesmo.",
+    "— Sou estudante de Psicologia. Vim pra tentar entender os outros. Mas agora, nem sei se entendo a mim mesmo.",
     "Fala com calma, tentando manter a compostura.",
     "— Como a Juliana disse... estávamos voltando da casa de uma conhecida.",
     "— Mas acabou a gasolina do carro e fomos obrigados a parar aqui.",
@@ -660,9 +692,14 @@ const cenas = [
     "— E então... veio o som. Aquele grito.",
     "Você respira fundo.",
     "— Só isso."
+    "Seu comentário chamou a atenção de Alfreda."
   ],
   proxima: "desparecimento_corpo"
 },
+
+
+
+
   {
   id: "desaparecimento_corpo",
   imagem: "img/hall_vazio.jpg",
