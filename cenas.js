@@ -533,7 +533,6 @@ const cenas = [
       proxima: "testemunho_eduardo"
     }
   ]
-  proxima: "testemunho_eduardo"
 },
 {
   id: "testemunho_eduardo",
@@ -646,7 +645,7 @@ const cenas = [
   id: "reacoes_alfreda",
   imagem: "img/sala_reuniao.jpg",
   texto: [
-    "Você por um minuto não acredita no que Alfreda disse, mas com base com o que viu no vidro talvez deva dá um voto de confiança a ela.",
+    "Você por um minuto não acredita no que Alfreda disse, mas com base com o que viu no vidro da janela, talvez deva dá um voto de confiança a ela.",
     "O silêncio na sala se transforma.",
     "Amanda franze a testa e cruza os braços. Analítica, mas desconfortável.",
     "Bruno solta uma risada seca, sem humor algum.",
@@ -680,7 +679,8 @@ const cenas = [
     "Você se levanta lentamente.",
     "— Me chamo {{nome}} {{sobrenome}}.",
     "— Juliana é minha madrasta. Sara é minha meia-irmã.",
-    "— Sou estudante de Psicologia. Vim pra tentar entender os outros. Mas agora, nem sei se entendo a mim mesmo.",
+    "— Sou estudante de Psicologia. Treinado para desvendar os labirintos do trauma, mas o que vivenciamos aqui agora...",
+    "Isso realmente me pegou de surpresa. Talvez há uma razão profunda para a minha presença aqui, embora a resposta ainda me escape.",
     "Fala com calma, tentando manter a compostura.",
     "— Como a Juliana disse... estávamos voltando da casa de uma conhecida.",
     "— Mas acabou a gasolina do carro e fomos obrigados a parar aqui.",
@@ -692,14 +692,19 @@ const cenas = [
     "— E então... veio o som. Aquele grito.",
     "Você respira fundo.",
     "— Só isso."
-    "Seu comentário chamou a atenção de Alfreda."
+    "Seu comentário chamou a atenção de Alfreda.",
+    "Porém Eduardo olha para você com suspeitas.",
   ],
-  proxima: "desparecimento_corpo"
-},
-
-
-
-
+    opcoes: [
+  {
+    texto: "Você ignora a reação de Eduardo.",
+    acao: () => {
+      mostrarTextoExtra([
+        "Eduardo: Bom, e agora xerife, o que o senhor recomenda que façamos!?",
+        "Renata: ¡Oye! ¡No digas esas cosas, Eduardo!"], "desaparecimento_corpo");
+    }
+  }
+]
   {
   id: "desaparecimento_corpo",
   imagem: "img/hall_vazio.jpg",
@@ -712,55 +717,35 @@ const cenas = [
     "Amanda recua um passo, levando a mão à boca.",
     "Renata deixa o celular cair no chão.",
     "Eduardo encara em silêncio absoluto.",
-    "Bruno murmura um palavrão.",
+    "Bruno: PUTA QUE PARIU...",
     "Juliana se aproxima de você e segura seu braço com força.",
     "Alfreda: MEU DEUS... A história é real. Está ACONTECENDO DE NOVO!",
     "Ela se afasta correndo em direção à lateral do hotel, em pânico.",
-    "Policial: EI! ESPERA! ALFREDA, VOLTA AQUI!"
+    "Marcos: EI! ESPERA! ALFREDA, VOLTA AQUI!"
   ],
   opcoes: [
-    {
-      texto: "Correr atrás de Alfreda",
-      proxima: "dialogo_alfreda"
+  {
+    texto: "Ficar ao lado de Juliana",
+    acao: () => {
+      mostrarTextoExtra(["Marcos:Alguém precisa ir atrás dela!", "Juliana olha para você com pesar, mas ela compreende a situação", "Juliana:Tudo bem {{nome}} pode ir, eu te aguardo aqui."], "dialogo_alfreda");
+      alterarAfinidade("Juliana", +1);
     }
-  ]
-},
-{
-  id: "desaparecimento_corpo",
-  imagem: "img/hall_vazio.jpg",
-  som: "audio/susto_breve.mp3",
-  texto: [
-    "Você volta ao hall principal.",
-    "O corpo... desapareceu.",
-    "No lugar onde estava... apenas um rastro de sangue escurecido no carpete.",
-    "As pessoas estão paralisadas.",
-    "Amanda recua um passo, levando a mão à boca.",
-    "Renata deixa o celular cair no chão.",
-    "Eduardo encara em silêncio absoluto.",
-    "Bruno murmura um palavrão.",
-    "Juliana se aproxima de você e segura seu braço com força.",
-    "Alfreda: MEU DEUS... A história é real. Está ACONTECENDO DE NOVO!",
-    "Ela se afasta correndo em direção à lateral do hotel, em pânico.",
-    "Policial: EI! ESPERA! ALFREDA, VOLTA AQUI!"
-  ],
-  opcoes: [
-    {
-      texto: "Correr atrás de Alfreda",
-      acao: () => {
-        mostrarTextoExtra([
-          "Você corre atrás de Alfreda, passando pela sala lateral do hotel.",
-          "O som da chuva do lado de fora fica mais intenso.",
-          "Você a encontra agachada perto da escada que dá acesso à área da piscina."
-        ], "dialogo_alfreda");
-      }
+  },
+  {
+    texto: "Largar a mão de Juliana e ir atrás de Alfreda.",
+    acao: () => {
+      mostrarTextoExtra(["Juliana: Ei! Espera {{nome}}!", "Marcos: Deixe ele ir Juliana! Ninguém pode ficar sozinho nesse momento!"], "dialogo_alfreda");
+      alterarAfinidade("Juliana", -1);
     }
-  ]
+  }
+]
 },
 {
   id: "dialogo_alfreda",
   imagem: "img/alfreda_sentada.jpg",
   texto: [
-    "Você se aproxima de Alfreda e senta ao lado dela.",
+    "Você corre em busca de Alfreda, logo encontra ela sentada no chão próximo a escada que dá acesso aos quartos."
+    "Você se aproxima e senta ao lado dela.",
     "Ela está encolhida, os joelhos juntos ao peito, o olhar perdido na escuridão do pátio externo.",
     "Alfreda: Talvez você ache que eu sou louca.",
     "Alfreda: Mas essas coisas que estão acontecendo aqui... isso tudo é real. É maligno.",
@@ -771,8 +756,10 @@ const cenas = [
     "Ela se vira para você. O olhar é intenso. Um contraste entre vulnerabilidade e algo mais profundo... desejo, medo, resignação.",
     "Alfreda: Me diga uma coisa...",
     "Alfreda: Se hoje fosse o seu último dia de vida...",
-    "Alfreda: ...o que você gostaria de fazer comigo agora?",
-    "Ela se aproxima. Dois estranhos unidos pelo medo, suor, perfume e a chuva misturando tudo em um momento suspenso no tempo."
+    "Alfreda: ...o que você gostaria de fazer?",
+    "Ela se aproxima. Dois estranhos unidos pelo medo, suor, perfume e a chuva misturando tudo em um momento suspenso no tempo.",
+    "Você se questiona se isso é realmente real.",
+    "Pensa e reflete sobre suas próximas ações."
   ],
   opcoes: [
     {
@@ -790,26 +777,140 @@ const cenas = [
   imagem: "img/banheiro_escuro.jpg",
   texto: [
     "Sem dizer uma palavra, Alfreda se levanta lentamente, pega sua mão e o conduz por um corredor estreito.",
-    "A chuva tamborila nos vidros, e o silêncio entre vocês é cortado apenas pelo som dos passos na madeira velha.",
+    "A chuva caindo nos vidros, e o silêncio entre vocês é cortado apenas pelo som dos passos na madeira velha.",
     "Ela abre uma porta — o banheiro do térreo, vazio, úmido, iluminado por uma lâmpada tremeluzente.",
     "Sem pressa, fecha a porta atrás de si.",
     "Alfreda: Não diga nada... só me sinta.",
     "As mãos dela tocam seu rosto com delicadeza, como se buscassem um último consolo.",
     "O beijo é profundo, desesperado. Dois corpos se encontrando não por paixão, mas pelo medo da morte iminente.",
     "A camisa social dela desliza pelos ombros, revelando a pele quente sob o toque frio do ambiente.",
-    "Ela o pressiona contra a parede gelada, e por um instante, o mundo parece parar — não há gritos, não há monstros, apenas respiração ofegante.",
-    "O som da chuva se mistura aos suspiros, e o espelho parcialmente embaçado reflete uma imagem crua: um ato de vida em meio à ameaça constante de morte.",
-    "Quando termina, ela encosta a testa na sua, olhos fechados, tentando segurar o momento por mais alguns segundos.",
-    "Alfreda: Obrigada... por me fazer sentir viva, nem que seja por um instante.",
-    "<span style='color:deeppink'>Malícia aumentada em +1 (rosa).</span>",
-    "Uma batida seca ecoa do lado de fora.",
-    "Alguém morreu."
+    "Ela o pressiona contra a parede gelada, e por um instante, o mundo parece parar — não há mais som de chuva para vocês, apenas respiração ofegante.",
+    "O som da chuva se mistura aos suspiros, e o espelho parcialmente embaçado, Alfreda deseja mais de você"
   ],
-  acao: () => {
-    alterarMalicia("malicia", +1);
+  opcoes: [
+  {
+    texto: "Tirar a roupa de Alfreda.",
+    acao: () => {
+      mostrarTextoExtra(["Você tira a roupa de Alfreda...","Ela fica corada por um breve momento..."Ela se agacha a sua frente submissa a você e abaixa suas calças..."], "alfreda_sex");
+      alterarMalicia(+1);
+    }
   },
-  proxima: "reuniao_pos_morte"
+  {
+    texto: "Acariciar os seios de Alfreda.",
+    acao: () => {
+      mostrarTextoExtra(["Você acaricia os seios de Alfreda...", "Ela tira a própria roupa, te olhando com um desejo intenso...","Ela se agacha a sua frente submissa a você e abaixa suas calças..."], "alfreda_sex");
+      alterarMalicia(+2);
+    }
+  }
+]
 },
+{
+  id: "alfreda_sex", 
+  imagem: "img/banheiro_escuro.jpg", 
+  texto: [
+    "Alfreda esta com as mãos deslizando pela sua virilha.",
+    "Ela te olha nos olhos por um breve momento, antes de se inclinar e começar a te excitar com a língua.",
+    "Você a observa agachada, e com um olhar faminto, ela segura sua virilha com mais força.",
+    "Alfreda começa a te chupar, mantendo o contato visual. Você sente o prazer subir, a respiração se tornando ofegante.",
+    "Ela intensifica os movimentos, te levando ao limite."
+  ],
+  opcoes: [
+    {
+      texto: "Foder a buceta dela",
+      acao: () => {
+        mostrarTextoExtra(["Você decide possuí-la..."], "alfreda_sex01");
+        alterarMalicia(+2);
+      }
+    },
+    {
+      texto: "Foder o ânus dela",
+      acao: () => {
+        mostrarTextoExtra(["Você se prepara para possuí-la por trás..."], "alfreda_sex02"); 
+        alterarMalicia(+3);
+      }
+    }
+  ]
+},
+{
+  id: "alfreda_sex01",
+  imagem: "img/banheiro_escuro.jpg", 
+  texto: [
+    "Você a levanta com agilidade e a coloca de costas contra a pia gelada, erguendo uma de suas pernas para firmá-la.",
+    "Seus corpos se unem em uma fusão intensa, o contato inicial arrancando um gemido abafado dela.",
+    "Os gemidos de Alfreda ecoam no ar, e ela começa a gritar de prazer, te incentivando com a voz rouca.",
+    "Alfreda: 'Isso! Me fode com mais força!'",
+    "Você obedece sem hesitar, segurando-a firmemente pelo pescoço, aumentando a intensidade e a força de cada estocada. O som da pele se chocando preenche o pequeno banheiro, o ritmo frenético te levando ao limite."
+  ],
+  opcoes: [
+    {
+      texto: "GOZAR",
+      proxima: "alfreda_cum" 
+      }
+     {
+      texto: "GOZAR",
+      proxima: "alfreda_cum" 
+      }
+      {
+      texto: "GOZAR",
+      proxima: "alfreda_cum" 
+      }
+  ]
+},
+{
+  id: "alfreda_sex02"
+  imagem: "img/banheiro_escuro.jpg", 
+  texto: [
+    "Com um movimento rápido, você a levanta e a vira, fazendo seu corpo quente se alinhar perfeitamente com o dela.",
+    "Alfreda se entrega sem reservas, os olhos fechados em puro desejo enquanto você a posiciona.",
+    "A pele dela se arrepia sob seu toque, e um gemido baixo escapa de seus lábios.",
+    "Você a penetra lentamente, sentindo a resistência inicial ceder à medida que seu pênis se aprofunda em seu ânus.", "Alfreda arqueia as costas, um gemido alto de prazer rompendo o silêncio, seguido por um grito abafado que ecoa no banheiro.",
+    "Alfreda, com a voz rouca e ofegante, te implora: 'Mais! Fode com mais força!'.",
+    "O corpo dela está tão molhado, tão entregue, que suas pernas tremem e ela mal consegue se manter em pé. Você a segura com firmeza, sentindo-a se apertar ao seu redor a cada estocada.",
+    "Obedecendo ao seu comando, você intensifica o ritmo, cada impulso mais profundo e forte que o anterior, levando-a a um frenesi de prazer.", "O som da pele se chocando e os gemidos dela se misturam ao som da chuva lá fora, criando uma sinfonia erótica."
+  ],
+  opcoes: [
+    {
+      texto: "GOZAR",
+      proxima: "alfreda_cum" 
+      }
+     {
+      texto: "GOZAR",
+      proxima: "alfreda_cum" 
+      }
+      {
+      texto: "GOZAR",
+      proxima: "alfreda_cum" 
+      }
+  ]
+},
+{
+  id: "alfreda_cum",
+  imagem: "img/banheiro_escuro.jpg",
+  texto: [
+    "O prazer explode em um clímax avassalador, consumindo você e Alfreda simultaneamente.",
+    "Ambos gemem, sentindo a descarga intensa do gozo invadir cada célula do corpo.",
+    "Com as respirações ofegantes, vocês se olham.",
+    "Nos olhos dela, a confirmação: ela gostou tanto quanto você.",
+    "Um entendimento mútuo e silencioso passa entre vocês, selando o que acabou de acontecer.",
+    "Mas a realidade brutal os atinge.",
+    "Enquanto os corpos se uniam em prazer, algo terrível acontecia na casa.",
+     "Alguém morreu",
+    "Vocês se vestem apressadamente, os movimentos ágeis, a adrenalina substituindo o prazer.",
+    "Há um senso de que o tempo se esgota.",
+    "A constatação é fria e chocante: alguém acaba de morrer."
+  ],
+  opcoes: [
+    {
+      texto: "Voltar para o hall junto com Alfreda",
+      acao: () => {
+        mostrarTextoExtra(["Vocês se apressam para o hall, o silêncio preenchido pela tensão do que está por vir."], "Retorno_hall");
+      }
+    }
+  ]
+},
+
+//parei com as correções at point
+
 {
   id: "alfreda_silencio",
   imagem: "img/escada_externa.jpg",
