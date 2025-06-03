@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  background-color: #0b0b0b;
+  color: #eee;
+  font-family: 'Courier New', monospace;
+}
+
+#tela-nome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+}
+
+#tela-nome input {
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #111;
+  border: 1px solid #555;
+  color: white;
+}
+
+#game {
+  width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #111;
+  border: 2px solid #444;
+  box-shadow: 0 0 20px rgba(83, 35, 42, 0.505);
+  display: flex;
+  flex-direction: column;
+}
+
+#imagem-cena {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+#texto {
+  font-size: 18px;
+  min-height: 120px;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+#opcoes button {
+  background-color: #222;
+  color: white;
+  border: 1px solid #555;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+#opcoes button:hover {
+  background-color: crimson;
+}
